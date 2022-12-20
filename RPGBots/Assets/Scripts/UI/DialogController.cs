@@ -1,7 +1,4 @@
 using Ink.Runtime;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -13,6 +10,8 @@ public class DialogController : MonoBehaviour
     [SerializeField] Button[] _choiceButtons;
 
     Story _story;
+
+    [SerializeField] Animator _animator;
 
     [ContextMenu("Start Dialog")]
     public void StartDialog(TextAsset dialog)
@@ -27,6 +26,7 @@ public class DialogController : MonoBehaviour
         while(_story.canContinue)
         {
             storyTextBuilder.AppendLine(_story.Continue());
+            HandleTags();
         }
         _storyText.SetText(storyTextBuilder);
 
@@ -46,5 +46,22 @@ public class DialogController : MonoBehaviour
                 });
             }
         }
+    }
+
+    void HandleTags()
+    {
+        foreach (var tag in _story.currentTags)
+        {
+            print(tag);
+            if (tag == "OpenDoor")
+            {
+                OpenDoor();
+            }
+        }
+    }
+
+    void OpenDoor()
+    {
+        _animator.SetTrigger("Open");
     }
 }
