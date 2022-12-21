@@ -53,15 +53,11 @@ public class DialogController : MonoBehaviour
         foreach (var tag in _story.currentTags)
         {
             print(tag);
-            if (tag == "OpenDoor")
+            if (tag.StartsWith("E."))
             {
-                OpenDoor();
+                string eventName = tag.Remove(0, 2);
+                GameEvent.RaiseEvent(eventName);
             }
         }
-    }
-
-    void OpenDoor()
-    {
-        _animator.SetTrigger("Open");
     }
 }
