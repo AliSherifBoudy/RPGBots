@@ -10,6 +10,7 @@ public class DialogGiver : MonoBehaviour
         var player = other.GetComponent<ThirdPersonMover>();
         if (player != null)
         {
+            GameObject.Find("[CANVAS] Dialog").SetActive(true);
             FindObjectOfType<DialogController>().StartDialog(_dialog);
             transform.LookAt(player.transform);
         }
