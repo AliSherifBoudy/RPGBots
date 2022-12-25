@@ -12,16 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51aa172071adb974a957480697bd2866, type: 3}
   m_Name: InspectThePanel
   m_EditorClassIdentifier: 
-  _name: Push the Button
-  _description: Help out JSON
+  _displayName: Inspect the Panel
+  _description: Help out JSON by checking out the panel and hitting some buttons
   _notes: I don't know what our second step is yet
+  _sprite: {fileID: 21300000, guid: f9694628324b51a4c9c56dd277c33c18, type: 3}
   Steps:
-  - _instructions: 
-    Objective:
-    - _objectiveType: 2
-  - _instructions: 
-    Objective:
-    - _objectiveType: 2
-  - _instructions: 
-    Objective:
-    - _objectiveType: 2
+  - _instructions: Go look at the panel
+    Objectives:
+    - _objectiveType: 0
