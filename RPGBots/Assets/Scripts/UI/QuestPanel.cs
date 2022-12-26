@@ -40,4 +40,10 @@ public class QuestPanel : MonoBehaviour
 
         _currentObjectivesText.SetText(builder.ToString());
     }
+
+    public void SelectQuest(Quest quest)
+    {
+        _selectedQuest = quest;
+        Bind();
+    }
 }
