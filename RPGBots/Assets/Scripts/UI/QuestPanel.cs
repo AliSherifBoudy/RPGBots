@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestPanel : MonoBehaviour
+public class QuestPanel : ToggleablePanel
 {
     [SerializeField] Quest _selectedQuest;
     [SerializeField] Step _selectedStep;
@@ -26,7 +26,7 @@ public class QuestPanel : MonoBehaviour
         DisplayStepInstructionsAndObjectives();
     }
 
-    private void DisplayStepInstructionsAndObjectives()
+    void DisplayStepInstructionsAndObjectives()
     {
         StringBuilder builder = new StringBuilder();
         if (_selectedStep != null)
@@ -45,5 +45,6 @@ public class QuestPanel : MonoBehaviour
     {
         _selectedQuest = quest;
         Bind();
+        Show();
     }
 }
