@@ -8,7 +8,7 @@ I've been waiting forever, I'm glad you're finally here.
 == instuctions ==
 Go to the panel, it's in the back room. #E.ShowControlPanel
     * Why can't you do that?
-    I'm too wide..
+    I'm too wide.. #Q.InspectThePanel
     * * Okay, I'm on it! #E.HideControlPanel
         Thanks! -> END
     
