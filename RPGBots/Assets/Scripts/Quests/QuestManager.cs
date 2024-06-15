@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
 
     }
 
+    [ContextMenu(itemName:"Progress Quests")]
     public void ProgressQuests()
     {
         foreach (var quest in _activeQuests)
