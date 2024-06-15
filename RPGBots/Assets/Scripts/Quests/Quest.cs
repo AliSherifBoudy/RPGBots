@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Quest")]
 public class Quest : ScriptableObject
 {
-    public event Action Progressed;
+    public event Action Changed;
 
     [SerializeField] string _displayName;
     [SerializeField] string _description;
@@ -25,7 +24,20 @@ public class Quest : ScriptableObject
 
     public Step CurrentStep => Steps[_currentStepIndex];
 
-    void OnEnable() => _currentStepIndex = 0;
+    void OnEnable()
+    {
+        _currentStepIndex = 0;
+        foreach (var step in Steps)
+            foreach (var objective in step.Objectives)
+                if (objective.GameFlag != null)
+                    objective.GameFlag.Changed += HandleFlagChanged;
+    }
+
+    void HandleFlagChanged()
+    {
+        TryProgress();
+        Changed?.Invoke();
+    }
 
     internal void TryProgress()
     {
@@ -33,7 +45,7 @@ public class Quest : ScriptableObject
         if (currentStep.HasAllObjectivesCompleted())
         {
             _currentStepIndex++;
-            Progressed?.Invoke();
+            Changed?.Invoke();
             // do whatever we do when a quest progresses  like update the UI
         }
     }
@@ -60,6 +72,8 @@ public class Objective
 {
     [SerializeField] ObjectiveType _objectiveType;
     [SerializeField] GameFlag _gameFlag;
+
+    public GameFlag GameFlag => _gameFlag;
 
     public enum ObjectiveType
     {

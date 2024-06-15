@@ -33,7 +33,8 @@ public class QuestPanel : ToggleablePanel
             builder.AppendLine(_selectedStep.Instructions);
             foreach (var objective in _selectedStep.Objectives)
             {
-                builder.AppendLine(objective.ToString());
+                string rgb = objective.IsCompleted ? "green" : "red";
+                builder.AppendLine($"<color={rgb}>{objective}</color>");
             }
         }
 
@@ -43,12 +44,12 @@ public class QuestPanel : ToggleablePanel
     public void SelectQuest(Quest quest)
     {
         if(_selectedQuest)
-            _selectedQuest.Progressed -= DisplayStepInstructionsAndObjectives;
+            _selectedQuest.Changed -= DisplayStepInstructionsAndObjectives;
 
         _selectedQuest = quest;
         Bind();
         Show();
 
-        _selectedQuest.Progressed += DisplayStepInstructionsAndObjectives;
+        _selectedQuest.Changed += DisplayStepInstructionsAndObjectives;
     }
 }
