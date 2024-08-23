@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fa99fdcbc67ac448dc4b312c802613, type: 3}
-  m_Name: Activate the Control Panel
+  m_Script: {fileID: 11500000, guid: 2a5cd70e2d3d5b84ab24bf758157559f, type: 3}
+  m_Name: Broken Panels Inspected
   m_EditorClassIdentifier: 

@@ -17,13 +17,25 @@ MonoBehaviour:
   _notes: I don't know what our second step is yet
   _sprite: {fileID: 21300000, guid: f9694628324b51a4c9c56dd277c33c18, type: 3}
   Steps:
+  - _instructions: Investigate Broken Panels
+    Objectives:
+    - _objectiveType: 1
+      _boolGameFlag: {fileID: 0}
+      _intGameFlag: {fileID: 11400000, guid: c34956bee4c4a184ebe9adbbc3a9dc1f, type: 2}
+      _required: 3
   - _instructions: Go look at the panel
     Objectives:
     - _objectiveType: 0
-      _gameFlag: {fileID: 11400000, guid: dddddc621f3311c4d931eee7e03ce5e0, type: 2}
+      _boolGameFlag: {fileID: 11400000, guid: dddddc621f3311c4d931eee7e03ce5e0, type: 2}
+      _intGameFlag: {fileID: 0}
+      _required: 0
     - _objectiveType: 0
-      _gameFlag: {fileID: 11400000, guid: e7cc559813e6cbf4197f5964a8142c27, type: 2}
+      _boolGameFlag: {fileID: 11400000, guid: e7cc559813e6cbf4197f5964a8142c27, type: 2}
+      _intGameFlag: {fileID: 0}
+      _required: 0
   - _instructions: Go look at the door
     Objectives:
     - _objectiveType: 0
-      _gameFlag: {fileID: 11400000, guid: 00d991bcfa03b284e9886fed20d688ed, type: 2}
+      _boolGameFlag: {fileID: 11400000, guid: 00d991bcfa03b284e9886fed20d688ed, type: 2}
+      _intGameFlag: {fileID: 0}
+      _required: 0
